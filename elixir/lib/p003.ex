@@ -38,4 +38,4 @@ defmodule P003 do
     do: start(number, 1)
 end
 
-IO.inspect P003.start(600_851_475_143)
+IO.inspect P003.start(600_851_475_143), label: "Largest prime factor"
