@@ -11,6 +11,7 @@ defmodule P002 do
 
   defp sum(previous, value, state),
     do: sum(value, previous + value, state)
+
   def sum,
     do: sum(1, 1, 0)
 end

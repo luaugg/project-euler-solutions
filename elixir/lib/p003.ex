@@ -4,9 +4,10 @@
 
 defmodule P003 do
   @moduledoc false
-  def g(x, number), do: rem(x * x + 1, number)
 
-  def inner(1, x, y, number) do
+  defp g(x, number), do: rem(x * x + 1, number)
+
+  defp inner(1, x, y, number) do
     x = g(x, number)
     y = g(y, number)
       |> g(number)
@@ -16,16 +17,16 @@ defmodule P003 do
       |> inner(x, y, number)
   end
 
-  def inner(divisor, _, _, number) when divisor == number,
+  defp inner(divisor, _, _, number) when divisor == number,
     do: {:prime, number}
 
-  def inner(divisor, _, _, _),
+  defp inner(divisor, _, _, _),
     do: {:composite, divisor}
 
-  def inner(number),
+  defp inner(number),
     do: inner(1, 2, 2, number)
 
-  def start(number, divisor) do
+  defp start(number, divisor) do
     value = div(number, divisor)
 
     case inner(value) do
