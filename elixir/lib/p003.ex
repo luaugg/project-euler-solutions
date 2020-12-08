@@ -25,9 +25,6 @@ defmodule P003 do
   def inner(number),
     do: inner(1, 2, 2, number)
 
-  def start(number, divisor) when div(number, divisor) == 1,
-    do: {:composite, number}
-
   def start(number, divisor) do
     value = div(number, divisor)
 
@@ -41,4 +38,4 @@ defmodule P003 do
     do: start(number, 1)
 end
 
-IO.inspect P003.start(600_851_475_143)
+IO.inspect P003.start(5)
