@@ -15,10 +15,10 @@ defmodule P007 do
     end
   end
 
-  def divide(10001, value, _),
+  defp divide(10001, value, _),
     do: value - 2
 
-  def divide(index, value, divisors) do
+  defp divide(index, value, divisors) do
     # Only checking primes up to the square root.
     sqrt = :math.sqrt(value)
     reversed = divisors
