@@ -21,11 +21,10 @@ defmodule P007 do
   defp divide(index, value, divisors) do
     # Only checking primes up to the square root.
     sqrt = :math.sqrt(value)
-    reversed = divisors
+    reduced = divisors
       |> Enum.reverse
       |> Enum.filter(&(&1 <= sqrt))
-
-    reduced = Enum.reduce_while(reversed, 0, fn divisor, _ -> divide_inner(value, divisor) end)
+      |> Enum.reduce_while(0, fn divisor, _ -> divide_inner(value, divisor) end)
 
     if rem(value, reduced) != 0 do
         # prime branch
@@ -37,7 +36,7 @@ defmodule P007 do
   end
 
   def start,
-    do: divide(2, 5, [3, 2])
+    do: divide(4, 9, [7, 5, 3, 2])
 end
 
 # IO.inspect P007.start, label: "10,001st prime number"
