@@ -33,4 +33,4 @@ defmodule P004 do
     do: multiply(0, {999, 999})
 end
 
-IO.inspect P004.start, label: "Largest palindrome"
+# IO.inspect P004.start, label: "Largest palindrome"

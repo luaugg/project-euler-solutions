@@ -17,4 +17,4 @@ defmodule P001 do
     do: sum(3, 0)
 end
 
-IO.inspect P001.sum, label: "Sum"
+# IO.inspect P001.sum, label: "Sum"

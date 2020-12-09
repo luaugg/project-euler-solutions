@@ -22,4 +22,4 @@ defmodule P006 do
     do: iter_square_sum(1, 0) - iter_sum_square(1, 0)
 end
 
-IO.inspect P006.start, label: "Difference"
+# IO.inspect P006.start, label: "Difference"

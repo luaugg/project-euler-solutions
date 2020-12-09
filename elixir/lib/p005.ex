@@ -28,4 +28,4 @@ defmodule P005 do
     do: iterate(1)
 end
 
-IO.inspect P005.start, label: "Number"
+# IO.inspect P005.start, label: "Number"
