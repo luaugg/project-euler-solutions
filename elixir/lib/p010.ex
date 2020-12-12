@@ -18,7 +18,6 @@ defmodule P010 do
           |> Enum.reduce(acc, &Map.delete(&2, &1))
       end)
       |> Map.keys
-      |> Enum.filter(&(&1))
       |> Enum.sum
   end
 
