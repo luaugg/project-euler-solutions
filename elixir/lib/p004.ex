@@ -3,34 +3,19 @@
 defmodule P004 do
   @moduledoc false
 
-  defp update_pair({1, _}),
-    do: :ok
-
-  defp update_pair({x, 1}),
-    do: {:update, {x - 1, 999}}
-
-  defp update_pair({x, y}),
-    do: {:update, {x, y - 1}}
-
-  defp multiply(largest, pair = {x, y}) do
-    product = x * y
-    pair = update_pair(pair)
-    str = to_string(product)
-
-    largest = if String.reverse(str) == str do
-      max(product, largest)
-    else
-      largest
-    end
-
-    case pair do
-      :ok -> largest
-      {:update, pair} -> multiply(largest, pair)
-    end
+  defp palindrome?(number) do
+    as_str = to_string(number)
+    String.reverse(as_str) == as_str
   end
 
-  def start,
-    do: multiply(0, {999, 999})
-end
+  def find do
+    999..1
+      |> Enum.reduce(0, fn elem, acc ->
+        list = elem..1
+          |> Enum.map(&(&1 * elem))
+          |> Enum.filter(&palindrome?/1)
 
-# IO.inspect P004.start, label: "Largest palindrome"
+        if list == [], do: acc, else: max(Enum.max(list), acc)
+      end)
+  end
+end

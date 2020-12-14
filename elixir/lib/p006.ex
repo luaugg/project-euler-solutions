@@ -6,20 +6,12 @@
 defmodule P006 do
   @moduledoc false
 
-  defp iter_sum_square(101, sum),
-    do: sum
+  def difference do
+    sum_squares = 1..100
+      |> Enum.map(&(&1 * &1))
+      |> Enum.sum
 
-  defp iter_sum_square(current, sum),
-    do: iter_sum_square(current + 1, sum + current * current)
-
-  defp iter_square_sum(101, sum),
-    do: sum * sum
-
-  defp iter_square_sum(current, sum),
-    do: iter_square_sum(current + 1, sum + current)
-
-  def start,
-    do: iter_square_sum(1, 0) - iter_sum_square(1, 0)
+    square_sum = Enum.sum(1..100) * Enum.sum(1..100)
+    sum_squares - square_sum
+  end
 end
-
-# IO.inspect P006.start, label: "Difference"

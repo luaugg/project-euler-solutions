@@ -3,18 +3,8 @@
 defmodule P001 do
   @moduledoc false
 
-  defp sum(1000, state), do: state
-
-  defp sum(value, state) when rem(value, 3) == 0,
-    do: sum(value + 1, state + value)
-
-  defp sum(value, state) when rem(value, 5) == 0,
-    do: sum(value + 1, state + value)
-
-  defp sum(value, state),
-    do: sum(value + 1, state)
-  def sum,
-    do: sum(3, 0)
+  def sum(value \\ 3, state \\ 0)
+  def sum(1000, state), do: state
+  def sum(value, state) when rem(value, 3) == 0 or rem(value, 5) == 0, do: sum(value + 1, state + value)
+  def sum(value, state), do: sum(value + 1, state)
 end
-
-# IO.inspect P001.sum, label: "Sum"

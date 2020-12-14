@@ -4,20 +4,11 @@
 defmodule P009 do
   @moduledoc false
 
-  defp find(a, 500),
-    do: find(a + 1, 1)
-
-  defp find(334, _),
-    do: :error
-
-  defp find(a, b) when (a * a) + (b * b) != (1000 - a - b) * (1000 - a - b),
-    do: find(a, b + 1)
-
-  defp find(a, b),
-    do: a * b * (1000 - a - b)
-
-  def start,
-    do: find 1,1
+  defguardp is_triple(a, b) when (a * a) + (b * b) == (1000 - a - b) * (1000 - a - b)
+  
+  def find(a \\ 1, b \\ 1)
+  def find(a, 500), do: find(a + 1, 1)
+  def find(334, _), do: :error
+  def find(a, b) when is_triple(a, b), do: a * b * (1000 - a - b)
+  def find(a, b), do: find(a, b + 1)
 end
-
-# IO.inspect P009.start, label: "Product"
