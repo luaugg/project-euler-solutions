@@ -11,7 +11,7 @@ defmodule P008 do
       |> String.slice(0..12)
       |> String.graphemes
       |> Enum.map(&String.to_integer/1)
-      |> Enum.reduce(1, &(&1 * &2))
+      |> Common.product
       |> max(largest)
 
     string

@@ -1,6 +1,8 @@
 defmodule Common do
   @moduledoc false
 
+  def product(enumerable, acc \\ 1), do: Enum.reduce(enumerable, acc, &(&1 * &2))
+
   def primes_upto(value) do
     sieve = 2..value
       |> Enum.reduce(%{}, &Map.put(&2, &1, true))

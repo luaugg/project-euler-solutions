@@ -9,7 +9,7 @@ defmodule P011 do
     1 .. 3
       |> Enum.map(&Map.get(map, fun.(&1)))
       |> Enum.reject(&is_nil/1)
-      |> Enum.reduce(Map.get(map, index), &(&1 * &2))
+      |> Common.product(Map.get(map, index))
       |> max(largest)
   end
 

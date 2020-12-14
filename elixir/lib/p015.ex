@@ -4,11 +4,9 @@
 defmodule P015 do
   @moduledoc false
 
-  defp factorial(n), do: Enum.reduce(n..1, 1, &(&1 * &2))
-
   def paths(grid_size \\ 20) do
-    grid_fact = factorial(grid_size)
-    twice_grid_fact = factorial(grid_size * 2)
+    grid_fact = Common.product(grid_size..1)
+    twice_grid_fact = Common.product(grid_size * 2..1)
     div(twice_grid_fact, grid_fact * grid_fact)
   end
 end
